@@ -1,3 +1,10 @@
+#![no_std]
+extern crate wee_alloc;
+
+#[global_allocator]
+static ALLOC: wee_alloc::WeeAlloc = wee_alloc::WeeAlloc::INIT;
+
+use wasm_bindgen::__rt::std::string::ToString;
 use wasm_bindgen::prelude::wasm_bindgen;
 
 const DASH: &'static str = "-";
@@ -92,5 +99,5 @@ pub fn main() {
         valid_tooltip,
     ];
 
-    let sum: usize = classes.iter().map(|string| string.len()).sum();
+    let _sum: usize = classes.iter().map(|string| string.len()).sum();
 }
